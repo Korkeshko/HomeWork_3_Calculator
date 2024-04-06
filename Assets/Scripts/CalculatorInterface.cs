@@ -17,9 +17,17 @@ public class CalculatorInterface : MonoBehaviour
 
     public void Button_Click_Equals()
     {
-        DataTable dt = new DataTable();
-        result = System.Convert.ToDouble(dt.Compute(DisplayText.text, ""));
-        DisplayText.text = result.ToString("", System.Globalization.CultureInfo.GetCultureInfo("en-US"));
+        try
+        {
+            DataTable dt = new DataTable();
+            result = System.Convert.ToDouble(dt.Compute(DisplayText.text, ""));
+            DisplayText.text = result.ToString("", System.Globalization.CultureInfo.GetCultureInfo("en-US"));
+        }
+        catch (System.Exception)
+        {
+            DisplayText.text = "Error";
+        }
+        
     }
 
     public void Button_Click_C()
